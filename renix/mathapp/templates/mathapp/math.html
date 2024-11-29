@@ -1,87 +1,78 @@
-<html>
-    <head>
-        <style>
-            body {
-                background: linear-gradient(135deg, #000000, #000000);
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                
-            }
-
-            h1 {
-                color: white;
-                font-style:bold;
-                text-align: center;
-                font-size: 50;
-                
-
-            }
-
-            .inputs {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background-color: rgba(211, 211, 211, 0.278);
-                width: 400px;
-                height: 300px;
-                padding: 20px;
-                
-            }
-
-            form {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Calculator</title>
+    <style type="text/css">
+        body {
+            background-color: #bdd1d3;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #006064;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #c9c4b7;
+            border-radius: 100%;
+            padding: 75px;
+            box-shadow:#f71bdd;
+            display:inline-block;
+            margin-top: 100px;
+        }
+        label {
+            font-size: 150%;
+            display:flow-root;
+            margin: 15px 0 5px;
+            
+        }
+        input[type="text"] {
+            width: calc(75% - 24px);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid #051313;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            background-color: #1fe374;
+            color: rgb(211, 241, 247);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 21px;
+            font-size: 1em;
+            cursor:pointer;
+        }
+        button:hover {
+            background-color: #d588b2;
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Power of the Bulb</h1>
+        <form method="POST">
+            {% csrf_token %}
+        <label >Intensity (A):</label>
+        <input type="text" name="intensity" value="{{I}}">
         
-            }
+        <label >Resistance (Ohm):</label>
+        <input type="text" name="resistance" value="{{R}}"><br><br>
+        <input type="submit" value="Calculate"><br><br>
+        <label>Power(watts):</label>
+        <input type="text" name="power" value="{{power}}">
+    </div>
+</form>        
 
-            label {
-                font-size: 20px;
-                color: rgb(255, 255, 0);
-            }
-
-            input {
-                padding: 8px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                font-size: 14px;
-                width: 100%;
-            }
-
-            button {
-                padding: 10px;
-                background-color: rgb(64, 255, 0);
-                color: white;
-                border: none;
-                border-radius: 5px;
-                font-size: 14px;
-            }
-
-
-
-        </style>
-    </head>
-    <body>
-        <h1>Power of a Lamp </h1><br>
-        <div class="inputs">
-            <form method="POST">
-                {% csrf_token %}
-                <label for="input1">Enter the intensity of the bulb(in W/m^2):</label>
-                <input type="text" id="input1" name="intensity" placeholder="Enter Intensity" value="{{I}}">
-                <label for="input2">Enter the resistance of the bulb(in ohm)</label>
-                <input type="text" id="input2" name="resistance" placeholder="Enter Resistance" value="{{R}}">
-                <button type="submit">Submit</button>
-            </form>
-            <label for="ans">Answer(in watts): </label>
-            <input type="text" id="ans" value="{{power}}" readonly>
-        </div>
-    </body>
+</body>
 </html>

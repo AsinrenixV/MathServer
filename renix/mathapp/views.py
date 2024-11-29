@@ -1,19 +1,30 @@
-from django.shortcuts import render 
-def power(request): 
-    context={} 
-    context['power'] = "0" 
-    context['I'] = "0" 
-    context['R'] = "0" 
-    if request.method == 'POST': 
-        print("POST method is used")
-        I =float( request.POST.get('intensity','0'))
-        R = float(request.POST.get('resistance','0'))
-        print('request=',request) 
-        print('intensity=',I) 
-        print('resistance=',R) 
-        power = (((I)**2) * (R))
-        context['power'] = power 
+from django.shortcuts import render
+def power_calculate(request):
+    context = {}
+    context['power'] = ""
+    context['I'] = ""
+    context['R'] = ""  
+
+    if request.method == 'POST':
+
+        I = float(request.POST.get('intensity', '0')) 
+
+        R = float(request.POST.get('resistance', '0')) 
+        
+        power = (I*I)*R
+       
+        context['power'] = f"{ power:.2f}"
+        
         context['I'] = I
-        context['R'] = R 
-        print('Power=',power) 
-    return render(request,'mathapp/math.html',context)
+        
+        context['R'] = R
+        
+        print(f"POST method is used")
+        print(f"request= {request}")
+        print(f"Intensity = {I}")
+        print(f"Resistance = {R}")
+        print(f"Power = {power}")
+       
+      
+    
+    return render(request, 'mathapp/math.html',context)

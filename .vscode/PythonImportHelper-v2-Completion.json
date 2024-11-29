@@ -115,11 +115,11 @@
         "documentation": {}
     },
     {
-        "label": "power",
+        "label": "power_calculate",
         "kind": 2,
         "importPath": "renix.mathapp.views",
         "description": "renix.mathapp.views",
-        "peekOfCode": "def power(request): \n    context={} \n    context['power'] = \"0\" \n    context['I'] = \"0\" \n    context['R'] = \"0\" \n    if request.method == 'POST': \n        print(\"POST method is used\")\n        I =float( request.POST.get('intensity','0'))\n        R = float(request.POST.get('resistance','0'))\n        print('request=',request) ",
+        "peekOfCode": "def power_calculate(request):\n    context = {}\n    context['power'] = \"\"\n    context['I'] = \"\"\n    context['R'] = \"\"  \n    if request.method == 'POST':\n        I = float(request.POST.get('intensity', '0')) \n        R = float(request.POST.get('resistance', '0')) \n        power = (I*I)*R\n        context['power'] = f\"{ power:.2f}\"",
         "detail": "renix.mathapp.views",
         "documentation": {}
     },
@@ -290,7 +290,7 @@
         "kind": 5,
         "importPath": "renix.renix.urls",
         "description": "renix.renix.urls",
-        "peekOfCode": "urlpatterns = [ \n    path('admin/', admin.site.urls), \n    path('power/',views.power,name=\"power\"),\n    path('',views.power,name=\"power\")\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('powerofbulb/',views.power_calculate,name=\"powerofbulb\"),\n    path('',views.power_calculate,name=\"powerofbulb\")\n]",
         "detail": "renix.renix.urls",
         "documentation": {}
     },
