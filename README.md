@@ -43,7 +43,7 @@ math.html
     <title>Power Calculator</title>
     <style type="text/css">
         body {
-            background-color: #bdd1d3;
+            background-color: #000000;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -97,7 +97,7 @@ math.html
 </head>
 <body>
     <div class="container">
-        <h1>The Power of the Bulb</h1>
+        <h1>The Power of the lamp</h1>
         <form method="POST">
             {% csrf_token %}
         <label >Intensity (A):</label>
@@ -154,8 +154,8 @@ from django.urls import path
 from mathapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('powerofbulb/',views.power_calculate,name="powerofbulb"),
-    path('',views.power_calculate,name="powerofbulb")
+    path('poweroflamp/',views.power_calculate,name="poweroflamp"),
+    path('',views.power_calculate,name="poweroflamp")
 ]
 ```
 

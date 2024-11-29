@@ -290,7 +290,7 @@
         "kind": 5,
         "importPath": "renix.renix.urls",
         "description": "renix.renix.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('powerofbulb/',views.power_calculate,name=\"powerofbulb\"),\n    path('',views.power_calculate,name=\"powerofbulb\")\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('poweroflamp/',views.power_calculate,name=\"poweroflamp\"),\n    path('',views.power_calculate,name=\"poweroflamp\")\n]",
         "detail": "renix.renix.urls",
         "documentation": {}
     },
