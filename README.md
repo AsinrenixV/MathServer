@@ -158,16 +158,14 @@ urlpatterns = [
     path('',views.power_calculate,name="poweroflamp")
 ]
 ```
-
-
 ## SERVER SIDE PROCESSING:
 
-![alt text](<Screenshot (37).png>)
-
+![alt text](<Screenshot (39).png>)
 
 ## HOMEPAGE:
 
-![alt text](<Screenshot (36).png>)
+![alt text](<Screenshot (38).png>)
+
 
 
 ## RESULT:
